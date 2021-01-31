@@ -10,13 +10,31 @@ class Index extends Component{
     }
   }
   componentDidMount() {
-    // window.location.hash = window.location.hash || '/';
+    const { location } = this.state;
+    window.location.hash = window.location.hash || '/';
+    window.addEventListener('hashchange', () => {
+      this.setState({
+        location: {
+          ...location,
+          pathname: window.location.hash.slice(1) || '/'
+        }
+      })
+    })
   }
 
   render(){
     const { children } = this.props;
+    const { location } = this.state;
+    const value = {
+      location,
+      history:{
+        push(to){
+          window.location.hash = to;
+        }
+      }
+    }
     return(
-        <Provider value={{ a: 1 }}>
+        <Provider value={value}>
           {children}
         </Provider>
     )

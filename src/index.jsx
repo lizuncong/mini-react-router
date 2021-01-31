@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 // import { HashRouter as Router, Route} from 'react-router-dom';
-import { HashRouter as Router, Route} from '../lib/index';
+import { HashRouter as Router, Link, Route} from '../lib/index';
 import Home from './home';
 import Profile from './profile';
 import User from './user';
@@ -14,7 +14,12 @@ export default class App extends Component{
   render(){
     return (
         <Router>
-           <Route path="/home">
+          <div>
+            <Link to="/home">首页</Link>
+            <Link to="/profile">个人中心</Link>
+            <Link to="/home">首页</Link>
+          </div>
+           <Route exact path="/home">
              <Home />
            </Route>
            <Route path="/profile">
