@@ -11,7 +11,6 @@ class Index extends Component{
             ({ location }) => {
               const { pathname } = location;
               const reg = pathToRegexp(path, [], { end: exact });
-              console.log('reg...', reg);
               const result = pathname.match(reg);
               if(result){
                 return Component ? <Component /> : children
