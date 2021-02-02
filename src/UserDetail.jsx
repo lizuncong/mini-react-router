@@ -6,10 +6,9 @@ class Index extends Component{
   }
 
   render(){
-    console.log('添加用户...', this.props)
     return (
         <div>
-          添加用户
+          用户详情：{this.props.match.params.id}
         </div>
     )
   }
