@@ -8,3 +8,6 @@
 
 ### 需要考虑的问题
 - 使用context跨组件传递 `history`，`location`，`match`属性传递给包裹的组件。
+#### react路由的两种实现方式
+- HashRouter。利用hash实现路由切换
+- BrowserRouter。利用h5 Api实现路由的切换
