@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -21,6 +22,8 @@ module.exports = {
         test: /\.jsx?$/,
         include: [
             path.resolve(__dirname, '../src'),
+            path.resolve(__dirname, '../node_modules/react-router-dom/modules'),
+            path.resolve(__dirname, '../node_modules/react-router/modules'),
             path.resolve(__dirname, '../lib'),
         ],
         use: [
@@ -39,6 +42,10 @@ module.exports = {
                 ],
                 '@babel/preset-react',
               ],
+              "plugins": [
+                "@babel/plugin-syntax-dynamic-import",
+                "@babel/plugin-proposal-class-properties"
+              ]
             },
           },
         ],
@@ -50,6 +57,9 @@ module.exports = {
       index: 'index.html',
       template: path.resolve(__dirname, '../template.html'),
     }),
+    new webpack.DefinePlugin({
+      "__DEV__": JSON.stringify("production"),
+    })
   ],
   devServer: {
     host: '0.0.0.0',

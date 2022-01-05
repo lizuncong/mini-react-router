@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { HashRouter as Router, Redirect, Link, Route, Switch} from '../lib/index';
-// import { HashRouter as Router, Redirect, Link, Route, Switch} from 'react-router-dom';
+// import { HashRouter as Router, Redirect, Link, Route, Switch} from '../lib/index';
+import { HashRouter as Router, Redirect, Link, Route, Switch} from 'react-router-dom';
 import Home from './home';
 import Profile from './profile';
 import User from './user';
