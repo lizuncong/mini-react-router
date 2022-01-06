@@ -12,7 +12,7 @@ class Index extends Component{
         <Consumer>
           {
             context => {
-              const { history } = context;
+              const { history, test } = context;
               return (
                   <a
                     onClick={() => {

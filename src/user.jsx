@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import { HashRouter as Router, Redirect, Link, Route, Switch} from '../lib/index';
-// import { HashRouter as Router, Redirect, Link, Route, Switch} from 'react-router-dom';
 import UserAdd from './userAdd';
 import UserList from './userList';
 import UserDetail from './UserDetail';

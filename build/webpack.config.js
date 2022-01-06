@@ -22,9 +22,8 @@ module.exports = {
         test: /\.jsx?$/,
         include: [
             path.resolve(__dirname, '../src'),
-            path.resolve(__dirname, '../node_modules/react-router-dom/modules'),
-            path.resolve(__dirname, '../node_modules/react-router/modules'),
             path.resolve(__dirname, '../lib'),
+            path.resolve(__dirname, '../history'),
         ],
         use: [
           {
