@@ -13,7 +13,10 @@
 ### 前端路由主流的实现方式
 1. hash
    - hash是URL中hash(#)及后面的那部分，常用做锚点在页面内导航。*改变URL中的hash部分不会引起页面刷新*。    
-   - 通过 `hashchange` 事件监听URL的变化。
+   - 通过 `hashchange` 事件监听URL的变化。以下三种方式均可以触发hashchange事件
+        + 浏览器前进后退。
+        + 点击a标签修改URL。
+        + 通过window.location.href修改URL
 ```javascript
 var route = document.getElementById('route');
 function onHashChange(){
@@ -77,3 +80,12 @@ links.forEach(function(link){
 react-router这个包是react router官方独立出来的一个与平台无关的包，既可以用于web，又可以用于react native。
 如果用于web，则需要配合react-router-dom这个包使用，因为这个包提供了特定于浏览器的接口，比如hash以及h5的pushState等
 路由跳转api。
+
+- Router.jsx
+- HistoryContext
+- RouterContext
+
+### react-router-dom
+用于web端的路由，提供了特定于浏览器的api，比如HashRouter，BrowserRouter，Link等
+- HashRouter.jsx
+- Link.jsx

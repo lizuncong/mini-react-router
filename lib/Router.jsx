@@ -19,6 +19,7 @@ class Router extends React.Component {
     // StaticRouter才会接收staticContext，用于服务端渲染
     if (!props.staticContext) {
       this.unlisten = history.listen(location => {
+        console.log('Router.jsx...listen')
         this.setState({ location });
       });
     }
@@ -30,6 +31,7 @@ class Router extends React.Component {
   }
 
   render() {
+    console.log('Router.jsx.render')
     return (
         <RouterContext.Provider
             value={{

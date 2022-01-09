@@ -1,32 +1,48 @@
-import React, { Component } from 'react';
-import { Consumer } from './context';
+import React, { forwardRef } from "react";
+import RouterContext from './RouterContext'
+import { createLocation } from '../history/util'
 
-class Index extends Component{
-  constructor(){
-    super();
-  }
 
-  render(){
-    const { children, to } = this.props;
-    return (
-        <Consumer>
-          {
-            context => {
-              const { history, test } = context;
-              return (
-                  <a
-                    onClick={() => {
-                      history.push(to)
-                    }}
-                  >
-                    {children}
-                  </a>
-              )
-            }
-          }
-        </Consumer>
-    )
-  }
+
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
 
-export default Index
+
+
+/**
+ * The public API for rendering a history-aware <a>.
+ */
+const Link = ({ to, children, ...rest }) => {
+  return (
+    <RouterContext.Consumer>
+      {context => {
+        const { history } = context;
+        //
+        // hash: ""
+        // pathname: "/home"
+        // search: ""
+        // state: null
+        const location = createLocation(to)
+        console.log('location...', location)
+        const href = '#' + location.pathname
+        const props = {
+          ...rest,
+          href,
+          onClick(event) {
+            event.preventDefault();
+            history.push(to);
+            console.log('link.click')
+          }
+        };
+
+
+        return <a {...props}>{children}</a>;
+      }}
+    </RouterContext.Consumer>
+  );
+}
+
+
+
+export default Link;

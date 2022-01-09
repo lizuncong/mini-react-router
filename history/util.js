@@ -20,11 +20,17 @@ function getHashPath() {
   return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
 }
 
+
+function getDOMLocation() {
+  const path = getHashPath();
+  return createLocation(path)
+}
 function createLocation(path) {
   return parsePath(path);
 }
 
 export {
   getHashPath,
-  createLocation
+  createLocation,
+  getDOMLocation
 }
