@@ -18,8 +18,7 @@ function createHashHistory(props) {
     })
   }
   function setState(nextState){
-    history.action = nextState.action;
-    history.location = nextState.location
+    history = { ...history, action: nextState.action, location: nextState.location }
     listeners.forEach(fn => {
       fn.apply(void 0, [history.location, history.action])
     })

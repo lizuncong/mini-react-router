@@ -81,9 +81,10 @@ react-router这个包是react router官方独立出来的一个与平台无关�
 如果用于web，则需要配合react-router-dom这个包使用，因为这个包提供了特定于浏览器的接口，比如hash以及h5的pushState等
 路由跳转api。
 
-- Router.jsx
 - HistoryContext
 - RouterContext
+- Router.jsx
+- Route.jsx
 
 ### react-router-dom
 用于web端的路由，提供了特定于浏览器的api，比如HashRouter，BrowserRouter，Link等
