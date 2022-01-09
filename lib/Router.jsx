@@ -11,14 +11,14 @@ class Router extends React.Component {
 
   constructor(props) {
     super(props);
-
+    const { history } = props;
     this.state = {
-      location: props.history.location
+      location: history.location
     };
 
-
+    // StaticRouter才会接收staticContext，用于服务端渲染
     if (!props.staticContext) {
-      this.unlisten = props.history.listen(location => {
+      this.unlisten = history.listen(location => {
         this.setState({ location });
       });
     }

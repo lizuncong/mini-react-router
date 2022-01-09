@@ -13,21 +13,23 @@ export default class App extends Component{
   render(){
     return (
         <Router>
-          <div>
-            <Link to="/home">首页</Link>
-            <Link to="/profile">个人中心</Link>
-            <Link to="/user">用户</Link>
-          </div>
-          <Switch>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route path="/profile">
-              <Profile/>
-            </Route>
-            <Route path="/user" component={User} />
-            <Redirect to="/home"></Redirect>
-          </Switch>
+          <div>React Router</div>
+          <a href="/#/test">hash change</a>
+          {/*<div>*/}
+          {/*  <Link to="/home">首页</Link>*/}
+          {/*  <Link to="/profile">个人中心</Link>*/}
+          {/*  <Link to="/user">用户</Link>*/}
+          {/*</div>*/}
+          {/*<Switch>*/}
+          {/*  <Route exact path="/home">*/}
+          {/*    <Home />*/}
+          {/*  </Route>*/}
+          {/*  <Route path="/profile">*/}
+          {/*    <Profile/>*/}
+          {/*  </Route>*/}
+          {/*  <Route path="/user" component={User} />*/}
+          {/*  <Redirect to="/home"></Redirect>*/}
+          {/*</Switch>*/}
         </Router>
     )
   }
