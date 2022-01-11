@@ -39,7 +39,7 @@
 // export default Index
 import React from "react";
 import RouterContext from "./RouterContext.js";
-import matchPath from "./matchPath.js";
+// import matchPath from "./matchPath.js";
 
 function isEmptyChildren(children) {
   return React.Children.count(children) === 0;

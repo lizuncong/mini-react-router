@@ -18,14 +18,15 @@ export default class App extends Component{
           <div><Link to="/home">首页</Link></div>
           {/*<div><Link to="/profile">个人中心</Link></div>*/}
           {/*<div><Link to="/user">用户</Link></div>*/}
-          {/*<Switch>*/}
-          <Route exact path="/home"><Home /></Route>
+          <Switch>
+            <Route path="/home"><Home /></Route>
+            <Route path="/home/123"><Profile /></Route>
           {/*  <Route path="/profile">*/}
           {/*    <Profile/>*/}
           {/*  </Route>*/}
           {/*  <Route path="/user" component={User} />*/}
           {/*  <Redirect to="/home"></Redirect>*/}
-          {/*</Switch>*/}
+          </Switch>
         </Router>
     )
   }

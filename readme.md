@@ -85,6 +85,7 @@ react-router这个包是react router官方独立出来的一个与平台无关�
 - RouterContext
 - Router.jsx
 - Route.jsx
+- Switch.jsx
 
 ### react-router-dom
 用于web端的路由，提供了特定于浏览器的api，比如HashRouter，BrowserRouter，Link等
