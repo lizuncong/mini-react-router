@@ -9,7 +9,6 @@ const Link = ({ to, children, ...rest }) => {
       {context => {
         const { history } = context;
         const location = createLocation(to)
-        console.log('location...', location)
         const href = '#' + location.pathname
         const props = {
           ...rest,

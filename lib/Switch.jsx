@@ -23,7 +23,6 @@ class Switch extends React.Component {
                 }
               }
             });
-            console.log('Swtich...', element)
             return element || null;
           }}
         </RouterContext.Consumer>
