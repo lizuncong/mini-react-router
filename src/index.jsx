@@ -20,11 +20,7 @@ export default class App extends Component{
           {/*<div><Link to="/user">用户</Link></div>*/}
           <Switch>
             <Route path="/home/:id"><Home /></Route>
-          {/*  <Route path="/profile">*/}
-          {/*    <Profile/>*/}
-          {/*  </Route>*/}
-          {/*  <Route path="/user" component={User} />*/}
-          {/*  <Redirect to="/home"></Redirect>*/}
+            <Redirect to="/home" />
           </Switch>
         </Router>
     )
