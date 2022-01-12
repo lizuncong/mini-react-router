@@ -1,15 +1,13 @@
-import { getHashPath, getDOMLocation, createLocation } from './util'
+import {createLocation, getDOMLocation, getHashPath} from "./util";
 
-function createHashHistory(props) {
+function createBrowserHistory(props) {
 
   let listeners = [];
+  const globalHistory = window.history;
   let history = {};
-  function handleHashChange(){
-    console.log('HashChange...')
+  function handlePopState(){
+    console.log('handlePopState...')
     const location = getDOMLocation()
-    // 通过点击Link跳转引起的hash值变化的，直接返回
-    if(history.location.pathname === location.pathname){ return }
-    // 通过浏览器前进后退，自定义a标签，window.location.hash 触发的hash值变化的，走下面的逻辑
     console.log('前进后退..')
     const action = 'POP'
     setState({
@@ -26,17 +24,17 @@ function createHashHistory(props) {
   function listen(listener) {
     listeners.push(listener)
     if(listeners.length === 1){
-      window.addEventListener('hashchange', handleHashChange);
+      window.addEventListener('popstate', handlePopState);
     }
     return function () {
       console.log('取消监听。。')
       listeners = listeners.filter(item => item !== listener)
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handlePopState);
     };
   }
   function push(path) {
     console.log('push...', path)
-    window.location.hash = path;
+    globalHistory.pushState({}, null, path)
     setState({
       action: 'PUSH',
       location: createLocation(path)
@@ -44,14 +42,14 @@ function createHashHistory(props) {
   }
   const path = getHashPath()
   const initialLocation = createLocation(path)
+
   history = {
     action: 'POP',
     listen,
     push,
     location: initialLocation,
-  }
-  return history
+  };
+  return history;
 }
 
-
-export default createHashHistory
+export default createBrowserHistory

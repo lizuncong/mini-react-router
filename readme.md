@@ -1,9 +1,10 @@
 ### 实现前端路由需要解决的两个关键问题：
 在平时开发过程中，可以发现，前端路由不管是react router还是vue router。路由改变，浏览器url也会改变，但是并不会引起浏览器重新刷新
+
 因此实现前端路由比较关键的两个问题就是：
 
 1. 如何改变URL而不会引起页面刷新。
-2. 如何检测URL变化。
+2. 如何检测URL变化，并替换页面内容。
 
 ### 改变URL的方式只有这几种情况
 1. 通过浏览器前进后退改变URL
@@ -43,7 +44,7 @@ window.addEventListener('hashchange', onHashChange)
              + 通过 `pushState/replaceState` 改变URL **不会触发**popState事件。  
              + 通过标签改变URL **不会触发** popState事件。  
    - 可以拦截 `pushState/replaceState` 的 调用和 **标签的点击事件** 来检测URL变化，所以监听URL变化可以实现，只是没有hashchange那么方便。
-
+   - 在实际的react-router-dom中，只会监听通过浏览器前进后退改变url以及通过react router的<Link>路由变化。
 ```javascript
 var route = document.getElementById('route');
 function onPopState () {
@@ -86,8 +87,19 @@ react-router这个包是react router官方独立出来的一个与平台无关�
 - Router.jsx
 - Route.jsx
 - Switch.jsx
+- Redirect.jsx
 
 ### react-router-dom
 用于web端的路由，提供了特定于浏览器的api，比如HashRouter，BrowserRouter，Link等
 - HashRouter.jsx
 - Link.jsx
+- BrowserRouter.jsx
+
+### react router dom中BrowserRouter和HashRouter的对比
+- HashRouter可以监听通过window.location.hash改变的路由变化并且替换页面内容。而BrowserRouter并不会监听window.location.href
+改变的路由
+- HashRouter可以监听开发者通过<a href="#/home">标签定义的hash路由变化，但是不会监听<a href="/home">引起的路由变化，
+而BrowserRouter并不会监听<a href="/home">。
+
+***因此建议使用react router官方提供的<Link>组件导航***
+
