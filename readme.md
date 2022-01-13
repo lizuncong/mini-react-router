@@ -98,8 +98,11 @@ react-router这个包是react router官方独立出来的一个与平台无关�
 ### react router dom中BrowserRouter和HashRouter的对比
 - HashRouter可以监听通过window.location.hash改变的路由变化并且替换页面内容。而BrowserRouter并不会监听window.location.href
 改变的路由
-- HashRouter可以监听开发者通过<a href="#/home">标签定义的hash路由变化，但是不会监听<a href="/home">引起的路由变化，
-而BrowserRouter并不会监听<a href="/home">。
+- HashRouter可以监听开发者通过`<a href="#/home">`标签定义的hash路由变化，但是不会监听`<a href="/home">`引起的路由变化，
+而BrowserRouter并不会监听`<a href="/home">`。
 
 ***因此建议使用react router官方提供的<Link>组件导航***
+
+- 使用BrowserRouter的时候请注意，如果访问的路由：https://localhost:8080/user/list，此时如果直接刷新浏览器，那么访问的实际上是服务器的路径，如果服务器没有这个路径，那么会看到浏览器显示
+ cannot get /user/list的提示。因此，如果在开发环境中，使用webpack-dev-server需要配置historyApiFallback将所有的不存在的路径重定向到根目录下。生产环境则可以通过nginx代理。
 
