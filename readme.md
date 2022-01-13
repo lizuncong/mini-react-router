@@ -103,6 +103,6 @@ react-router这个包是react router官方独立出来的一个与平台无关�
 
 ***因此建议使用react router官方提供的<Link>组件导航***
 
-- 使用BrowserRouter的时候请注意，如果访问的路由：https://localhost:8080/user/list，此时如果直接刷新浏览器，那么访问的实际上是服务器的路径，如果服务器没有这个路径，那么会看到浏览器显示
+- 使用BrowserRouter的时候请注意，如果访问的路由：`https://localhost:8080/user/list`，此时如果直接刷新浏览器，那么访问的实际上是服务器的路径，如果服务器没有这个路径，那么会看到浏览器显示
  cannot get /user/list的提示。因此，如果在开发环境中，使用webpack-dev-server需要配置historyApiFallback将所有的不存在的路径重定向到根目录下。生产环境则可以通过nginx代理。
 
